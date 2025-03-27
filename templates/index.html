@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Activity Tracker</title>
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to Sports Activity Tracker</h1>
+            <p>Track your sports activities and see your statistics!</p>
+        </header>
+
+        <div class="form-container">
+            <!-- Add Activity Form -->
+            <form action="/add" method="POST" class="activity-form">
+                <h2>Add Activity</h2>
+                <label for="duration">Duration (in minutes):</label>
+                <input type="text" id="duration" name="duration" required>
+                <label for="activity_type">Activity Type:</label>
+                <input type="text" id="activity_type" name="activity_type" required>
+                <button type="submit">Add Activity</button>
+            </form>
+
+            <!-- Delete Activity Form -->
+            <form action="/delete" method="POST" class="activity-form">
+                <h2>Delete Activity</h2>
+                <label for="delete_duration">Duration to Delete (in minutes):</label>
+                <input type="text" id="delete_duration" name="duration" required>
+                <button type="submit">Delete Activity</button>
+            </form>
+
+            <!-- Search Activity Form -->
+            <form action="/search" method="GET" class="activity-form">
+                <h2>Search Activity</h2>
+                <label for="search_duration">Search by Duration:</label>
+                <input type="text" id="search_duration" name="duration">
+                <label for="search_activity_type">Search by Activity Type:</label>
+                <input type="text" id="search_activity_type" name="activity_type">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+        <footer>
+            <a href="/stats" class="stats-link">View Statistics</a>
+        </footer>
+    </div>
+</body>
+</html>
